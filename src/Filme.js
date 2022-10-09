@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export default function Filme({ poster }) {
+export default function Filme(props) {
+    const {poster, id} = props
+    
     return (
         <FilmeContainer>
             <Poster src={poster}/>

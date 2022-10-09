@@ -1,16 +1,45 @@
-import { useState } from "react"
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from "styled-components";
-import GlobalStyle from "./GlobalStyle"
-import Filmes from "./Filmes"
+import GlobalStyle from "./GlobalStyle";
+import Filmes from "./Filmes";
+import Horario from "./Horario";
+import Sessao from "./Sessao";
+import Sucesso from "./Sucesso";
 
 export default function App() {
+
+const [filmes, setFilmes] = useState([]);
+const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
+    
+    
+useEffect(() => {
+    requisicao.then(resposta => {
+        console.log(resposta)
+        console.log(resposta.data)
+        setFilmes(resposta.data);
+});
+        
+    requisicao.catch(erro => {
+        console.log(erro.response.data)
+});
+    
+}, []);
+
     return (
-        <Container>
-            <GlobalStyle/>
-            <Header>CINEFLEX</Header>
-            <Frase>Selecione o filme</Frase>
-            <Filmes/>
-        </Container>
+        <BrowserRouter>
+            <Container>
+                <GlobalStyle/>
+                <Header><NavbarLink to="/">CINEFLEX</NavbarLink></Header>
+                <Routes>
+                    <Route path="/" element={<Filmes filmes = {filmes}/>} />
+                    <Route path="/filme/" element={<Horario/>} />
+                    <Route path="/sessao/" element={<Sessao/>} />
+                    <Route path="/sucesso/" element={<Sucesso/>} />
+                </Routes>
+            </Container>
+        </BrowserRouter>
     )
 }
 
@@ -38,11 +67,12 @@ height: 10vh;
 display: flex;
 align-items: center;
 justify-content: center;
-
 `
 
-const Frase = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+const NavbarLink = styled(Link)`
+text-decoration: none;
+color: #E8833A;
+&:visited, &:focus, &:active:
+text-decoration: none;
 `
+

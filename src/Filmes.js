@@ -1,43 +1,33 @@
 import styled from "styled-components";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import Filme from './Filme';
 
-export default function Filmes() {
-const [filmes, setFilmes] = useState([]);
-const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/movies")
-
-
-useEffect(() => {
-    requisicao.then(resposta => {
-        console.log(resposta)
-        console.log(resposta.data)
-        setFilmes(resposta.data);
-    });
-
-    requisicao.catch(erro => {
-        console.log(erro.response.data)
-    });
-
-}, []);
-
-
+export default function Filmes({filmes}) {
 
     return (
-        <ContainerFilmes>
-            {filmes.map((filmes) =>
-            (
-            <Filme
-            poster = {filmes.posterURL}
-            key = {filmes.id}
-            lancamento = {filmes.releaseDate}
-            resumo = {filmes.overview}
-            titulo = {filmes.title}
-            />
-            ))}
-        </ContainerFilmes>
+        <>
+            <Frase>Selecione o filme</Frase>
+            <ContainerFilmes>
+                {filmes.map((filmes) =>
+                (
+                <Filme
+                poster = {filmes.posterURL}
+                id = {filmes.id}
+                key = {filmes.id}
+                lancamento = {filmes.releaseDate}
+                resumo = {filmes.overview}
+                titulo = {filmes.title}
+                />
+                ))}
+            </ContainerFilmes>
+        </>
     )
 }
+
+const Frase = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+`
 
 const ContainerFilmes = styled.div`
 display: flex;
@@ -48,4 +38,5 @@ align-content: center;
 max-height: 280vh;
 position: relative;
 gap: 3vw;
+margin-bottom: 2vh;
 `
