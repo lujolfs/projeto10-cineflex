@@ -1,9 +1,11 @@
+import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Filme from './Filme';
 
 export default function Sessao() {
+
 
 /*     useEffect(() => {
         requisicao.then(resposta => {

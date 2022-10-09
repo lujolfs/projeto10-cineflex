@@ -4,7 +4,7 @@ import axios from 'axios';
 import styled from "styled-components";
 import GlobalStyle from "./GlobalStyle";
 import Filmes from "./Filmes";
-import Horario from "./Horario";
+import Horarios from "./Horarios";
 import Sessao from "./Sessao";
 import Sucesso from "./Sucesso";
 
@@ -16,8 +16,6 @@ const requisicao = axios.get("https://mock-api.driven.com.br/api/v5/cineflex/mov
     
 useEffect(() => {
     requisicao.then(resposta => {
-        console.log(resposta)
-        console.log(resposta.data)
         setFilmes(resposta.data);
 });
         
@@ -34,7 +32,7 @@ useEffect(() => {
                 <Header><NavbarLink to="/">CINEFLEX</NavbarLink></Header>
                 <Routes>
                     <Route path="/" element={<Filmes filmes = {filmes}/>} />
-                    <Route path="/filme/" element={<Horario/>} />
+                    <Route path="/filme/:filmeId" element={<Horarios/>} />
                     <Route path="/sessao/" element={<Sessao/>} />
                     <Route path="/sucesso/" element={<Sucesso/>} />
                 </Routes>
@@ -68,6 +66,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 `
+
 
 const NavbarLink = styled(Link)`
 text-decoration: none;

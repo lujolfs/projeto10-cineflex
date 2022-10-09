@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Filme from './Filme';
 
@@ -39,4 +40,10 @@ max-height: 280vh;
 position: relative;
 gap: 3vw;
 margin-bottom: 2vh;
+`
+
+const BrowsingLink = styled(Link)`
+text-decoration: none;
+&:visited, &:focus, &:active:
+text-decoration: none;
 `

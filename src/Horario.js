@@ -1,36 +1,31 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import Filme from './Filme';
+import Dias from "./Dias";
 
-export default function Horario(filmes, idDoFilme) {
-
-/*     useEffect(() => {
-        requisicao.then(resposta => {
-            console.log(resposta)
-            console.log(resposta.data)
-            setFilmes(resposta.data);
-    });
-            
-        requisicao.catch(erro => {
-            console.log(erro.response.data)
-    });
-        
-    }, []); */
-
-    console.log(filmes);
-    console.log(idDoFilme)
-
+export default function Horario({horarios}) {
     return (
-        <>
-        <Frase>Selecione o horário</Frase>
-        <div><h1>Olá!</h1></div>
-        </>
+        <ContainerHorario>
+            <HorarioSite>
+                {horarios.map((horarios) =>
+                (
+                <Dias
+                date = {horarios.date}
+                id = {horarios.id}
+                key = {horarios.id}
+                weekday = {horarios.weekday}
+                showtimes = {horarios.showtimes}
+                />
+                ))} 
+            </HorarioSite>
+        </ContainerHorario>
     )
 }
 
-const Frase = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+
+const ContainerHorario = styled.div`
+background-color:yellow;
+`
+
+const HorarioSite = styled.div`
+
 `
