@@ -5,11 +5,10 @@ export default function HoraContainer(props) {
 
     return (
         <ContainerHora>
-            {showtimes.map((showtimes, index) =>
+            {showtimes.map((showtimes) =>
             (
                 <Hora>
-                    {showtimes[index]}
-                    <h1> O que é isto que está acontecendo</h1>
+                    {showtimes.name}
                 </Hora>
             ))}
         </ContainerHora>
@@ -22,10 +21,22 @@ export default function HoraContainer(props) {
 
 
 const ContainerHora = styled.div`
-    background-color: red;
     display: flex;
+    flex-direction: row;
+    justify-content: left;
+    font-size: 20px;
+    padding-top: 22px;
+    gap: 12px;
     `
 
-const Hora = styled.div`
-    background-color: blue;
+const Hora = styled.button`
+    font-family: Roboto;
+    font-size: 18px;
+    background-color: #E8833A;
+    justify-content: center;
+    border-radius: 3px;
+    width: 85px;
+    height: 45px;
+    border: none;
+    color: #FFFFFF;
     `

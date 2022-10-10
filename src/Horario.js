@@ -23,9 +23,9 @@ export default function Horario({horarios}) {
 
 
 const ContainerHorario = styled.div`
-background-color:yellow;
+justify-content: left;
 `
 
 const HorarioSite = styled.div`
-
+justify-content: left;
 `

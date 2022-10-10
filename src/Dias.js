@@ -18,7 +18,7 @@ const DataContainer = styled.div`
 margin-left: 3vw;
 display: flex;
 flex-direction: column;
-align-items: center;
 justify-content: left;
 font-size: 20px;
+padding: 23px 0px;
 `
