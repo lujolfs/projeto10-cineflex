@@ -30,7 +30,8 @@ useEffect(() => {
             <Frase>Selecione o horário</Frase>
             <Horario horarios = {horarios} />
             <Footer>
-                <Poster src={posterFooter.poster.poster}/>
+                <PosterContainer><Poster src={posterFooter.poster.poster}/></PosterContainer>
+                <Titulo>{posterFooter.nome.titulo}</Titulo>
             </Footer>
         </>
     )
@@ -43,17 +44,33 @@ align-items: center;
 justify-content: center;
 `
 
-const ContainerHorarios = styled.div`
-
-`
-
-
 const Footer = styled.div`
 background-color: #DFE6ED;
+display:flex;
+padding: 10px;
 `
 
 const Poster = styled.img`
 width: 100%;
 height: 100%;
 object-fit: contain;
+`
+const PosterContainer = styled.div`
+height: 89px;
+width: 64px;
+padding: 2vw;
+background-color: #FFFFFF;
+box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+border-radius: 3px;
+display: flex
+justify-content: center;
+`
+
+
+const Titulo = styled.div`
+margin-left: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 26px;
 `
