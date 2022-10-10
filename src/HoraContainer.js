@@ -1,15 +1,20 @@
 import styled from "styled-components";
+import { Link, useParams, useLocation } from "react-router-dom";
+
 
 export default function HoraContainer(props) {
     const { showtimes } = props;
 
+    console.log(showtimes)
     return (
         <ContainerHora>
             {showtimes.map((showtimes) =>
             (
+                <Link to={`/sessao/${showtimes.id}`} state={showtimes}>
                 <Hora>
                     {showtimes.name}
                 </Hora>
+                </Link>
             ))}
         </ContainerHora>
     )

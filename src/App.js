@@ -33,7 +33,7 @@ useEffect(() => {
                 <Routes>
                     <Route path="/" element={<Filmes filmes = {filmes}/>} />
                     <Route path="/filme/:filmeId" element={<Horarios/>} />
-                    <Route path="/sessao/" element={<Sessao/>} />
+                    <Route path="/sessao/:sessaoId" element={<Sessao/>} />
                     <Route path="/sucesso/" element={<Sucesso/>} />
                 </Routes>
             </Container>

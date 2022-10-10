@@ -4,14 +4,12 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Horario from './Horario'
 
-export default function Horarios(props) {
+export default function Horarios() {
     const { filmeId } = useParams()
     const [horarios, setHorarios] = useState([])
     const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/movies/${filmeId}/showtimes`)
     const location = useLocation()
-
     const posterFooter = location.state
-    console.log(posterFooter);
 
 
 useEffect(() => {

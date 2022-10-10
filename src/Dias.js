@@ -7,7 +7,7 @@ export default function Dias(props) {
         <>
             <DataContainer>
                 {weekday} - {date}
-                 <HoraContainer showtimes={showtimes} />
+                 <HoraContainer showtimes={showtimes} id={id}/>
             </DataContainer>
         </>
     )
