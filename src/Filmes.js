@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Filme from './Filme';
 
-export default function Filmes({filmes}) {
-
+export default function Filmes(props) {
+const {filmes, setPoster} = props
     return (
         <>
             <Frase>Selecione o filme</Frase>

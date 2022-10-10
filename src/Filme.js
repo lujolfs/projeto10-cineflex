@@ -2,10 +2,11 @@ import styled from "styled-components";
 import {Link} from 'react-router-dom'
 
 export default function Filme(props) {
-    const {poster, id} = props
-    
+    const {poster, id, titulo} = props
+    const infosFooter = {poster: {poster}, nome: {titulo}}
+
     return (
-            <Link to={`/filme/${id}`}>
+            <Link to={`/filme/${id}`} state={infosFooter}>
             <FilmeContainer>
                 <Poster src={poster}/>
             </FilmeContainer>

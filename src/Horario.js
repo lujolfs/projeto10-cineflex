@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Dias from "./Dias";
 
-export default function Horario({horarios}) {
+export default function Horario(props) {
+    const {horarios} = props
     return (
         <ContainerHorario>
             <HorarioSite>
@@ -15,7 +16,7 @@ export default function Horario({horarios}) {
                 weekday = {horarios.weekday}
                 showtimes = {horarios.showtimes}
                 />
-                ))} 
+                ))}
             </HorarioSite>
         </ContainerHorario>
     )

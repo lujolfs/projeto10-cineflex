@@ -3,7 +3,6 @@ import HoraContainer from "./HoraContainer"
 
 export default function Dias(props) {
     const {weekday, date, showtimes, id} = props
-    console.log(showtimes);
     return (
         <>
             <DataContainer>
