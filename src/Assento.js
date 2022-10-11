@@ -5,20 +5,24 @@ import {Link} from 'react-router-dom'
 export default function Assento(props) {
 const [clicado, setClicado] = useState(false)
 
-    const {id, name, isAvailable} = props
-    console.log(isAvailable)
-/*     const infosFooter = {poster: {poster}, nome: {titulo}} */
+    const {id, name, isAvailable, listaAssentos, setListaAssentos, listaTempAssentos} = props
 
-/* function checkDisponibilidade() {
+function checkDisponibilidade() {
     if (isAvailable) {
         setClicado(!clicado);
         console.log(clicado);
         console.log(name);
+        console.log(listaAssentos);
+    } else {
+        alert("Esse assento não está disponível");
     }
-} */
+}
 
     return (
-            <AssentoContainer status={isAvailable} clicado={clicado} onClick={() => isAvailable ? console.log("clicou") : console.log("clicou tambem")}>
+            <AssentoContainer 
+            status={isAvailable} 
+            clicado={clicado} 
+            onClick={checkDisponibilidade}>
                 {name}
             </AssentoContainer>
     )

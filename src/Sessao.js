@@ -7,8 +7,10 @@ import Assento from "./Assento";
 export default function Sessao() {
         const { sessaoId } = useParams()
         const [assentos, setAssentos] = useState([])
+        const [listaAssentos, setListaAssentos] = useState([])
         const promise = axios.get(`https://mock-api.driven.com.br/api/v5/cineflex/showtimes/${sessaoId}/seats`)
         const location = useLocation()
+        let listaTempAssentos = {};
     
     useEffect(() => {
         promise.then(res => {
@@ -32,6 +34,10 @@ export default function Sessao() {
                     id = {seats.id}
                     name = {seats.name}
                     isAvailable = {seats.isAvailable}
+                    listaAssentos = {listaAssentos}
+                    setListaAssentos = {setListaAssentos}
+                    key = {seats.id + 35000}
+                    listaTempAssentos = {listaTempAssentos}
                     />
                     ))}
             </ContainerAssentos>
